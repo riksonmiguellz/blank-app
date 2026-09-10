@@ -101,6 +101,13 @@
     .keystrip .k:nth-child(1),.keystrip .k:nth-child(2){border-bottom:1px solid var(--line);}
   }
 
+  /* ---------- METRIC TILES ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:16px 18px;}
+  .metric .n{font-family:"Spectral",serif;font-weight:700;font-size:clamp(20px,3vw,26px);color:var(--green);line-height:1.05;font-variant-numeric:tabular-nums;}
+  .metric .l{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35;}
+  .metric .s{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--faint);margin-top:4px;display:block;}
+
   /* ---------- SECTIONS ---------- */
   section{margin-top:56px;}
   .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;}
@@ -251,7 +258,7 @@
       <div class="k"><div class="n">≈ 16,2 mil</div><div class="l">Colaboradores</div></div>
       <div class="k"><div class="n">~70</div><div class="l">Países atendidos</div></div>
     </div>
-    <p class="chart-note" style="margin-top:10px;">Fundada em 1963 · 128ª maior empresa do Brasil · Maior produtora de tilápia da América Latina · +720 mil aves/dia · Meta de R$ 16 bi até 2028 · Certificada GPTW</p>
+    <p class="chart-note" style="margin-top:10px;">Fundada em 1963 · 128ª maior empresa do Brasil · Maior produtora de tilápia da América do Sul · 710 mil aves/dia · Exporta a ~80 países · Meta de R$ 16 bi até 2028 · GPTW · Melhor do Biogás Brasil</p>
   </header>
 
   <!-- ===================== FICHA 01 ===================== -->
@@ -327,17 +334,30 @@
         <dl>
           <dt>2025</dt><dd><strong>R$ 477,3 mi</strong> em expansão e modernização — o maior aporte anual da história</dd>
           <dt>2024</dt><dd>R$ 132 mi em 14 unidades de recebimento de grãos</dd>
-          <dt>Plano 5 anos</dt><dd>Quase <strong>R$ 1 bilhão</strong> em aportes previstos até o início de 2028 (planejamento estratégico quinquenal)</dd>
+          <dt>2026</dt><dd>Nova unidade de grãos em <strong>Realeza (Sudoeste do PR)</strong>: R$ 77 mi, com R$ 57,7 mi financiados pelo BNDES — 24 mil t de armazenagem (4 silos), secador de 150 t/h</dd>
+          <dt>Plano 5 anos</dt><dd>Quase <strong>R$ 1 bilhão</strong> em aportes até 2028</dd>
         </dl>
       </div>
       <div class="panel">
-        <h3>Produtos &amp; exportação</h3>
+        <h3>Certificações &amp; mercados</h3>
         <dl>
-          <dt>Marca</dt><dd>Copacol Alimentos — empanados de frango e de tilápia, cortes de frango, pescados congelados (tilápia, camarão, sardinha, tambaqui)</dd>
-          <dt>Frango</dt><dd><strong>292 mil t</strong> exportadas — ~65% da produção vai para fora; principal item da pauta externa</dd>
-          <dt>Tilápia</dt><dd>Exportada aos EUA e ao Japão (filés resfriados e derivados)</dd>
-          <dt>Exportação (2022)</dt><dd><strong>US$ 608 milhões</strong> em vendas externas</dd>
+          <dt>Certificações</dt><dd><strong>ISO 9001, BRC, APPCC/HACCP, Halal e SIF</strong> (Inspeção Federal)</dd>
+          <dt>Alcance</dt><dd>Exporta a <strong>~80 países</strong>; ~60% da carne de frango vai para fora, sendo <strong>25% ao Oriente Médio</strong> via filial em Dubai (Emirados, +5 anos)</dd>
+          <dt>Perfil por mercado</dt><dd>Japão (coxa/sobrecoxa temperada), Oriente Médio (frango inteiro e cortes Halal), UE (peito desossado), China (pés e asas)</dd>
+          <dt>Marca</dt><dd>Copacol Alimentos — empanados de frango e tilápia, cortes, pescados congelados; exportação de US$ 608 mi (2022)</dd>
         </dl>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Números da operação (base anual recente)</h3>
+      <div class="metrics">
+        <div class="metric"><div class="n">2 mi t</div><div class="l">Grãos recebidos</div><span class="s">35 unidades · UIS esmaga 1.900 t/dia</span></div>
+        <div class="metric"><div class="n">710 mil</div><div class="l">Aves abatidas/dia</div><span class="s">Meta de 1 milhão/dia até 2027</span></div>
+        <div class="metric"><div class="n">200 mi</div><div class="l">Aves/ano · 477,3 mil t de carne</div><span class="s">Já superou 2 bilhões acumuladas</span></div>
+        <div class="metric"><div class="n">140 mil</div><div class="l">Tilápias abatidas/dia (Nova Aurora)</div><span class="s">Maior volume da América do Sul</span></div>
+        <div class="metric"><div class="n">42 mi</div><div class="l">Peixes/ano · 14,9 mil t</div><span class="s">Pescado fatura +R$ 1 bilhão</span></div>
+        <div class="metric"><div class="n">20 MW</div><div class="l">Biogás/dia (dejetos suínos)</div><span class="s">Melhor do Biogás Brasil 2 anos seguidos</span></div>
       </div>
     </div>
 
@@ -434,8 +454,42 @@
       <h3>Sustentabilidade / ESG</h3>
       <dl>
         <dt>Relatório</dt><dd>Publica <strong>Relatório de Sustentabilidade em padrão GRI</strong> (lançado pelo presidente Valter Pitol), alinhado ao plano 2024–2028 — apoio de Sescoop e Ocepar, consultoria Gália</dd>
-        <dt>Programa</dt><dd>"Coop Sustentável" — uso consciente de recursos naturais</dd>
-        <dt>Energia &amp; bem-estar</dt><dd>Iniciativas de energia limpa (biogás, solar, biomassa) e práticas de bem-estar animal</dd>
+        <dt>Biogás</dt><dd><strong>Melhor do Biogás Brasil por 2 anos seguidos</strong> (melhor planta industrial). A usina opera desde dez/2022, gera 20 MW/dia a partir de dejetos suínos; em 2025 produziu 6,8 milhões de kWh e economizou ~R$ 6,4 mi; processa 15 mil t/ano de resíduos orgânicos</dd>
+        <dt>Programa</dt><dd>"Coop Sustentável" — uso consciente de recursos naturais; iniciativas em solar e biomassa e práticas de bem-estar animal</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== GOVERNANÇA / ATOS LEGAIS ===================== -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01e / GOVERNANÇA</span>
+      <h2 class="sec-title">Governança, cadastro &amp; atos legais</h2>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Dados cadastrais (Receita Federal)</h3>
+        <dl>
+          <dt>CNPJ matriz</dt><dd class="mono">76.093.731/0001-90</dd>
+          <dt>Natureza</dt><dd>Sociedade cooperativa · porte "Demais" (grande) · situação ativa</dd>
+          <dt>Registro Receita</dt><dd>20/07/1970 (fundação social em 1963)</dd>
+          <dt>Estrutura</dt><dd>Dezenas de filiais/CNPJs (Cafelândia, Jesuítas, Formosa do Oeste, Corbélia, Palmitópolis, Brasília, entre outras) e o Centro de Pesquisa Agrícola Copacol (CPA)</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Publicidade legal</h3>
+        <dl>
+          <dt>Obrigação</dt><dd>Como cooperativa (Lei 5.764/71), é obrigada a <strong>convocar assembleias por edital</strong> e dar publicidade a balanços/demonstrações — em jornal de grande circulação e/ou órgão oficial, além de afixação na sede.</dd>
+          <dt>Na prática</dt><dd>Realiza <strong>AGO anual</strong> (fevereiro, em Cafelândia), amplamente coberta pela imprensa regional; publica <strong>relatórios anuais e demonstrações financeiras</strong> no próprio site.</dd>
+          <dt>Verificar edição</dt><dd>Não localizei a edição específica do edital/balanço em busca aberta. Para confirmar: <a href="https://www.imprensaoficial.pr.gov.br/" target="_blank" rel="noopener">Diário Oficial do PR</a>, <a href="https://www.juntacomercial.pr.gov.br/" target="_blank" rel="noopener">JucePar</a> e jornais regionais (ex.: <em>O Paraná</em>/Cascavel).</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Conselhos (composição em fontes públicas — pode refletir mandato anterior)</h3>
+      <dl>
+        <dt>Administração</dt><dd>Ailton José Cecato, Antonio Mauro Painelli, Eroni Cardoso, Fernando Paião de Oliveira, Genézio Clemente, Jair Irineu Felipe, José Dante Locks, Luiz Carlos de Sousa, Pedro Bortolato, Pedro Paulo da Silva, Valdecir Zatta e Valentim Pascutti</dd>
+        <dt>Fiscal</dt><dd>Efetivos: Batista Torre, Cézar Célio Cerneck, Paulo José da Silva · Suplentes: Ailton Schumann, Valderi Carlos Roessler, Waldemar de Ré</dd>
       </dl>
     </div>
   </section>
@@ -614,6 +668,14 @@
         <li><a href="https://www.parana.pr.gov.br/aen/Noticia/Estudo-coloca-11-cooperativas-agricolas-paranaenses-entre-maiores-do-mundo" target="_blank" rel="noopener">Governo do PR — cooperativas paranaenses entre as maiores do mundo</a></li>
         <li><a href="https://souagro.net/noticia/2023/08/protagonismo-do-oeste-cinco-das-melhores-cooperativas-do-mundo-estao-aqui/" target="_blank" rel="noopener">Sou Agro — cinco das melhores cooperativas do mundo no Oeste do PR</a></li>
         <li><a href="https://www.copacol.com.br/relatorios-anuais" target="_blank" rel="noopener">Copacol — Relatórios Anuais e Demonstrações Financeiras (PDF; requer acesso ao site)</a></li>
+        <li><a href="https://www.noticiasagricolas.com.br/noticias/granjeiros/281088-copacol-atinge-a-marca-de-2-bilhoes-de-aves-abatidas.html" target="_blank" rel="noopener">Notícias Agrícolas — 2 bilhões de aves abatidas; volumes de produção</a></li>
+        <li><a href="https://opresenterural.com.br/usina-da-copacol-e-eleita-a-melhor-do-biogas-brasil-2025/" target="_blank" rel="noopener">O Presente Rural — usina de biogás eleita a Melhor do Brasil</a></li>
+        <li><a href="https://agrimidia.com.br/avicultura-industrial/2026/07/29/copacol-investe-r-77-milhoes-em-nova-estrutura-no-sudoeste-do-parana-e-expande-atuacao-em-realeza/" target="_blank" rel="noopener">Agrimídia — R$ 77 mi em nova unidade em Realeza</a></li>
+        <li><a href="https://www.canalrural.com.br/agricultura/bndes-aprova-r-577-milhoes-para-nova-unidade-da-copacol-no-parana/" target="_blank" rel="noopener">Canal Rural — BNDES aprova R$ 57,7 mi para a unidade de Realeza</a></li>
+        <li><a href="https://opresenterural.com.br/copacol-completa-cinco-anos-de-atuacao-nos-emirados-arabes-unidos/" target="_blank" rel="noopener">O Presente Rural — 5 anos nos Emirados Árabes (filial de Dubai)</a></li>
+        <li><a href="https://www.econodata.com.br/consulta-empresa/76093731000190-copacolcooperativa-agroindustrial-consolata" target="_blank" rel="noopener">Econodata — dados cadastrais da Copacol (CNPJ)</a></li>
+        <li><a href="https://revistacultivar.com.br/noticias/copacol-completa-62-anos-e-reforca-expansao-no-agronegocio" target="_blank" rel="noopener">Revista Cultivar — Copacol completa 62 anos</a></li>
+        <li><a href="https://www.imprensaoficial.pr.gov.br/" target="_blank" rel="noopener">Imprensa Oficial do Paraná — verificação de atos legais</a></li>
       </ol>
     </div>
   </section>
