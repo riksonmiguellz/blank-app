@@ -1,316 +1,495 @@
-<title>Dossiê Copacol &amp; Silvério Constantino</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Zilla+Slab:wght@500;600;700&display=swap">
+<title>Dossiê Copacol</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root{
-    --ground:#F5F6F2;
-    --card:#FFFFFF;
-    --ink:#1D2A21;
-    --muted:#5B6A5F;
-    --line:#DCE2DA;
-    --green:#1F6B3B;
-    --green-soft:#E4EFE7;
-    --gold:#A87A16;
-    --gold-soft:#F4EBD6;
-    --link:#1F6B3B;
+    --paper:#EFEEE4;
+    --panel:#FBFAF3;
+    --ink:#17231B;
+    --muted:#5E6A5E;
+    --faint:#8A9385;
+    --line:#D8D6C6;
+    --line-strong:#C3C2AE;
+    --green:#1C5E38;
+    --green-deep:#123F26;
+    --green-soft:#E1EBDF;
+    --grain:#9A7A18;
+    --grain-soft:#EFE6CB;
+    --clay:#A6432B;
+    --clay-soft:#F0DCD3;
+    --link:#1C5E38;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ground:#131A15;
-      --card:#1B241E;
-      --ink:#E7EEE8;
-      --muted:#9DAFA1;
-      --line:#2C382F;
-      --green:#6FC08B;
-      --green-soft:#22352A;
-      --gold:#D9A83F;
-      --gold-soft:#372E1A;
-      --link:#7CCB97;
+      --paper:#10160F;
+      --panel:#182016;
+      --ink:#E9EDE2;
+      --muted:#9FAB9C;
+      --faint:#727E6F;
+      --line:#2A331F;
+      --line-strong:#3A452C;
+      --green:#6FBF88;
+      --green-deep:#8FD3A4;
+      --green-soft:#1D2E1D;
+      --grain:#D2AC4C;
+      --grain-soft:#312a12;
+      --clay:#E0866B;
+      --clay-soft:#33211a;
+      --link:#7ECF97;
     }
   }
   :root[data-theme="dark"]{
-    --ground:#131A15;
-    --card:#1B241E;
-    --ink:#E7EEE8;
-    --muted:#9DAFA1;
-    --line:#2C382F;
-    --green:#6FC08B;
-    --green-soft:#22352A;
-    --gold:#D9A83F;
-    --gold-soft:#372E1A;
-    --link:#7CCB97;
+    --paper:#10160F;--panel:#182016;--ink:#E9EDE2;--muted:#9FAB9C;--faint:#727E6F;
+    --line:#2A331F;--line-strong:#3A452C;--green:#6FBF88;--green-deep:#8FD3A4;
+    --green-soft:#1D2E1D;--grain:#D2AC4C;--grain-soft:#312a12;--clay:#E0866B;
+    --clay-soft:#33211a;--link:#7ECF97;
   }
+  *{box-sizing:border-box;}
   body{
-    background:var(--ground);
-    color:var(--ink);
+    background:var(--paper);color:var(--ink);
     font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
-    line-height:1.55;
-    padding-inline:20px;
-    padding-block:0 64px;
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+    padding-inline:20px;padding-block:0 72px;
   }
-  .wrap{max-width:880px;margin:0 auto;}
-  a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  a{color:var(--link);text-underline-offset:2px;text-decoration-thickness:1px;}
   a:hover{text-decoration-thickness:2px;}
-  a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px;}
+  a:focus-visible{outline:2px solid var(--grain);outline-offset:2px;border-radius:2px;}
+  .mono{font-family:"IBM Plex Mono","SFMono-Regular",monospace;}
 
-  header.masthead{
-    border-bottom:3px solid var(--green);
-    padding-block:40px 24px;
-    margin-bottom:36px;
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding-block:44px 0;}
+  .dossier-tag{
+    display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;
+    color:var(--muted);text-transform:uppercase;padding-bottom:14px;
+    border-bottom:1px solid var(--line-strong);
   }
-  .eyebrow{
-    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--gold);margin:0 0 10px;
-  }
+  .dossier-tag b{color:var(--green);font-weight:600;}
+  .dossier-tag .sep{color:var(--line-strong);}
   h1{
-    font-family:"Zilla Slab",Georgia,serif;
-    font-size:clamp(30px,5.5vw,46px);
-    font-weight:700;line-height:1.1;margin:0 0 12px;text-wrap:balance;
+    font-family:"Spectral",Georgia,serif;font-weight:800;
+    font-size:clamp(40px,8.5vw,84px);line-height:.98;letter-spacing:-.015em;
+    margin:26px 0 0;text-wrap:balance;
   }
-  .lede{max-width:62ch;color:var(--muted);margin:0;font-size:16px;}
-  .meta-note{
-    margin-top:16px;font-size:13px;color:var(--muted);
+  h1 em{font-style:italic;font-weight:500;color:var(--green);}
+  .subtitle{
+    font-family:"Spectral",serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--muted);max-width:60ch;margin:18px 0 0;line-height:1.4;
+  }
+  .disclaimer{
+    margin:26px 0 0;font-size:12.5px;line-height:1.5;color:var(--muted);
     background:var(--green-soft);border-left:3px solid var(--green);
-    padding:10px 14px;border-radius:0 6px 6px 0;max-width:70ch;
+    padding:12px 16px;border-radius:0 4px 4px 0;max-width:78ch;
   }
 
-  .ficha-label{
-    display:flex;align-items:baseline;gap:12px;
-    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--green);margin:44px 0 6px;
+  /* ---------- HERO STATS ---------- */
+  .keystrip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin-top:34px;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;
+    background:var(--panel);
   }
-  .ficha-label::after{content:"";flex:1;border-top:1px solid var(--line);}
-  h2{
-    font-family:"Zilla Slab",Georgia,serif;
-    font-size:clamp(24px,4vw,32px);font-weight:600;margin:0 0 4px;text-wrap:balance;
+  .keystrip .k{padding:18px 20px;border-right:1px solid var(--line);}
+  .keystrip .k:last-child{border-right:0;}
+  .keystrip .k .n{
+    font-family:"Spectral",serif;font-weight:700;font-size:clamp(22px,3.4vw,30px);
+    color:var(--green);line-height:1;font-variant-numeric:tabular-nums;
   }
-  .role{color:var(--muted);font-size:15px;margin:0 0 20px;}
-
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:22px 24px;margin-bottom:20px;
-  }
-  h3{
-    font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 14px;
-  }
-  dl{margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:24px;row-gap:10px;}
-  dt{font-weight:600;font-size:14px;color:var(--muted);}
-  dd{margin:0;font-size:15px;font-variant-numeric:tabular-nums;}
-  @media (max-width:560px){
-    dl{grid-template-columns:1fr;row-gap:2px;}
-    dt{margin-top:10px;}
+  .keystrip .k .l{font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.3;}
+  @media (max-width:680px){
+    .keystrip{grid-template-columns:1fr 1fr;}
+    .keystrip .k:nth-child(2){border-right:0;}
+    .keystrip .k:nth-child(1),.keystrip .k:nth-child(2){border-bottom:1px solid var(--line);}
   }
 
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0;}
-  .stat{
-    background:var(--green-soft);border-radius:8px;padding:14px 16px;
+  /* ---------- SECTIONS ---------- */
+  section{margin-top:56px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;}
+  .sec-num{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+    color:var(--grain);letter-spacing:.05em;padding-top:6px;
   }
-  .stat b{
-    display:block;font-family:"Zilla Slab",Georgia,serif;font-size:24px;font-weight:700;
-    color:var(--green);font-variant-numeric:tabular-nums;line-height:1.2;
+  .sec-title{
+    font-family:"Spectral",serif;font-weight:700;font-size:clamp(26px,4.4vw,38px);
+    line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em;
   }
-  .stat span{font-size:12.5px;color:var(--muted);}
-  .stat small{display:block;font-size:11px;color:var(--muted);margin-top:2px;}
+  .sec-title .role{
+    display:block;font-family:"Archivo",sans-serif;font-weight:500;font-size:14px;
+    color:var(--muted);letter-spacing:0;margin-top:6px;
+  }
+  .sec-head::after{content:"";flex:1;border-top:1px solid var(--line);align-self:center;}
 
-  .links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
-  .links a{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--card);border:1px solid var(--line);border-radius:999px;
-    padding:8px 16px;font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);
+  /* ---------- PANELS ---------- */
+  .panel{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:24px 26px;margin-bottom:16px;
   }
-  .links a:hover{border-color:var(--green);color:var(--green);}
-  .links .net{
-    font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--gold);
+  .panel h3{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+    margin:0 0 16px;display:flex;align-items:center;gap:8px;
   }
-  .links li.busca a{border-style:dashed;}
+  .panel h3::before{content:"";width:14px;height:2px;background:var(--grain);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr;}}
 
-  ul.timeline{list-style:none;margin:0;padding:0;}
-  ul.timeline li{
-    padding:10px 0 10px 18px;border-left:2px solid var(--line);position:relative;font-size:15px;
-  }
-  ul.timeline li::before{
-    content:"";position:absolute;left:-5px;top:18px;width:8px;height:8px;border-radius:50%;
-    background:var(--gold);
-  }
-  ul.timeline li strong{color:var(--ink);}
+  dl{margin:0;display:grid;grid-template-columns:minmax(120px,max-content) 1fr;column-gap:22px;row-gap:13px;}
+  dt{font-size:12px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.04em;padding-top:2px;}
+  dd{margin:0;font-size:14.5px;line-height:1.5;}
+  dd strong{color:var(--green-deep);}
+  @media (max-width:560px){dl{grid-template-columns:1fr;row-gap:3px;}dt{margin-top:12px;}}
 
-  .fontes ol{margin:0;padding-left:20px;font-size:14px;}
-  .fontes li{margin-bottom:8px;overflow-wrap:anywhere;}
+  /* ---------- REVENUE CHART ---------- */
+  .chart-wrap{margin-top:4px;}
+  .bars{display:flex;align-items:flex-end;gap:14px;height:180px;padding:0 4px;margin-top:8px;}
+  .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%;}
+  .bar .col{
+    width:100%;max-width:64px;border-radius:5px 5px 0 0;
+    background:linear-gradient(180deg,var(--green) 0%,var(--green-deep) 100%);
+    position:relative;transition:none;
+  }
+  .bar .col.faded{background:linear-gradient(180deg,var(--grain) 0%,var(--grain) 100%);opacity:.55;}
+  .bar .val{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--green);}
+  .bar .yr{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);}
+  .chart-note{font-size:12px;color:var(--faint);margin-top:14px;}
+
+  /* ---------- SPLIT BARS (revenue composition) ---------- */
+  .compose{margin-top:2px;}
+  .compose .row{display:flex;align-items:center;gap:12px;margin-bottom:11px;font-size:13.5px;}
+  .compose .name{width:120px;flex-shrink:0;color:var(--muted);}
+  .compose .track{flex:1;height:18px;background:var(--green-soft);border-radius:4px;overflow:hidden;}
+  .compose .fill{height:100%;background:var(--green);border-radius:4px;}
+  .compose .pct{width:52px;text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--green-deep);}
+  @media (max-width:480px){.compose .name{width:84px;font-size:12px;}}
+
+  /* ---------- TIMELINE ---------- */
+  ul.tl{list-style:none;margin:0;padding:0;}
+  ul.tl li{
+    position:relative;padding:0 0 18px 26px;border-left:2px solid var(--line-strong);
+    font-size:14.5px;line-height:1.5;
+  }
+  ul.tl li:last-child{border-left-color:transparent;padding-bottom:0;}
+  ul.tl li::before{
+    content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--grain);
+  }
+  ul.tl li .yr{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+    color:var(--grain);display:block;margin-bottom:2px;letter-spacing:.03em;
+  }
+  ul.tl li strong{color:var(--green-deep);}
+
+  /* ---------- RISK / CAPIVARA ---------- */
+  .risk .sec-num{color:var(--clay);}
+  .flag{
+    background:var(--clay-soft);border:1px solid var(--clay);border-radius:10px;
+    padding:22px 24px;margin-bottom:16px;
+  }
+  .flag h3{color:var(--clay);}
+  .flag h3::before{background:var(--clay);}
+  .flag dd strong{color:var(--clay);}
+  .sev{
+    display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;background:var(--clay);color:#fff;
+  }
+  :root[data-theme="dark"] .sev,:root:not([data-theme="light"]) .sev{color:#1a0f0b;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sev{color:#1a0f0b;}}
+
+  /* ---------- LINK CHIPS ---------- */
+  .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:9px;}
+  .chips a{
+    display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+    background:var(--panel);border:1px solid var(--line-strong);border-radius:7px;
+    padding:9px 14px;font-size:13.5px;font-weight:600;color:var(--ink);
+  }
+  .chips a:hover{border-color:var(--green);color:var(--green);background:var(--green-soft);}
+  .chips .net{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--grain);
+  }
+  .chips li.q a{border-style:dashed;color:var(--muted);}
+  .chips li.q a:hover{color:var(--green);}
+  .hint{font-size:12.5px;color:var(--muted);margin:14px 0 0;line-height:1.5;}
+
+  /* ---------- SOURCES ---------- */
+  .sources ol{margin:0;padding-left:0;list-style:none;counter-reset:s;}
+  .sources li{
+    counter-increment:s;position:relative;padding:9px 0 9px 34px;
+    border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.45;overflow-wrap:anywhere;
+  }
+  .sources li:last-child{border-bottom:0;}
+  .sources li::before{
+    content:counter(s,decimal-leading-zero);position:absolute;left:0;top:9px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--grain);font-weight:600;
+  }
   footer{
-    margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
-    font-size:12.5px;color:var(--muted);max-width:75ch;
+    margin-top:52px;padding-top:18px;border-top:2px solid var(--line-strong);
+    font-size:12px;color:var(--faint);max-width:80ch;line-height:1.6;
+    font-family:"IBM Plex Mono",monospace;
   }
 </style>
 
 <div class="wrap">
+  <!-- ===================== MASTHEAD ===================== -->
   <header class="masthead">
-    <p class="eyebrow">Dossiê institucional · Setembro de 2026</p>
-    <h1>Copacol &amp; Silvério Constantino</h1>
-    <p class="lede">Levantamento de informações públicas sobre a Cooperativa Agroindustrial Consolata (Copacol), de Cafelândia&nbsp;(PR), e sobre Silvério Constantino, diretor executivo da cooperativa — com todas as fontes e redes sociais em links clicáveis.</p>
-    <p class="meta-note">Todas as informações abaixo foram coletadas de fontes públicas e institucionais (site oficial, imprensa e publicações da própria cooperativa). Números e cargos refletem o que estava publicado até setembro de 2026.</p>
+    <div class="dossier-tag">
+      <span><b>Dossiê</b> · Inteligência de mercado</span>
+      <span class="sep">/</span>
+      <span>Ref. CPC-2026-09</span>
+      <span class="sep">/</span>
+      <span>Emitido 10 set 2026</span>
+      <span class="sep">/</span>
+      <span>Fontes públicas</span>
+    </div>
+    <h1>Copacol <em>&amp;</em><br>Silvério Constantino</h1>
+    <p class="subtitle">A cooperativa que nasceu à luz de lampião em Cafelândia, hoje uma potência de R$ 11 bilhões no Oeste do Paraná — e o diretor que subiu da base ao comando executivo.</p>
+    <p class="disclaimer">Compilado exclusivamente a partir de <strong>fontes públicas e institucionais</strong> (site oficial, imprensa, publicações da cooperativa e bases públicas de processos). Não inclui dados pessoais sigilosos e não substitui certidão oficial. Números refletem o publicado até setembro de 2026 e podem ter mudado.</p>
+
+    <div class="keystrip">
+      <div class="k"><div class="n">R$ 11,1 bi</div><div class="l">Faturamento 2025</div></div>
+      <div class="k"><div class="n">≈ 9,6 mil</div><div class="l">Cooperados</div></div>
+      <div class="k"><div class="n">≈ 16,2 mil</div><div class="l">Colaboradores</div></div>
+      <div class="k"><div class="n">~70</div><div class="l">Países atendidos</div></div>
+    </div>
   </header>
 
-  <!-- ====================== FICHA 1 ====================== -->
-  <p class="ficha-label">Ficha 01 · A cooperativa</p>
-  <h2>Copacol — Cooperativa Agroindustrial Consolata</h2>
-  <p class="role">Uma das maiores cooperativas agroindustriais do Brasil · Sede em Cafelândia, Oeste do Paraná</p>
-
-  <div class="card">
-    <h3>Identificação</h3>
-    <dl>
-      <dt>Razão social</dt><dd>Copacol — Cooperativa Agroindustrial Consolata</dd>
-      <dt>CNPJ (matriz)</dt><dd>76.093.731/0001-90 · <a href="https://cnpj.biz/76093731000190" target="_blank" rel="noopener">consulta pública</a></dd>
-      <dt>Sede</dt><dd>Cafelândia — Paraná, Brasil</dd>
-      <dt>Fundação</dt><dd>23 de outubro de 1963 — primeira cooperativa do Oeste do Paraná, fundada pelo padre italiano Luís Luise com 32 agricultores</dd>
-      <dt>Atividades</dt><dd>Avicultura (carro-chefe), agricultura (soja, milho e trigo), suinocultura, piscicultura (tilápia), leite, farinhas e óleos</dd>
-      <dt>Presença</dt><dd>Exportação para cerca de 70 países, nos 5 continentes; unidades de grãos, insumos e sementes no Paraná e no Rio Grande do Sul</dd>
-      <dt>Site oficial</dt><dd><a href="https://www.copacol.com.br" target="_blank" rel="noopener">www.copacol.com.br</a></dd>
-    </dl>
-  </div>
-
-  <div class="card">
-    <h3>Números recentes</h3>
-    <div class="stats">
-      <div class="stat"><b>R$ 10,6 bi</b><span>faturamento em 2024</span><small>alta de 8% sobre 2023</small></div>
-      <div class="stat"><b>R$ 11,1 bi</b><span>faturamento em 2025</span><small>alta de 4,7% sobre 2024</small></div>
-      <div class="stat"><b>R$ 270 mi</b><span>sobras pagas aos cooperados</span><small>maior valor da história (ref. 2024)</small></div>
-      <div class="stat"><b>≈ 9,6 mil</b><span>cooperados</span></div>
-      <div class="stat"><b>≈ 16,2 mil</b><span>colaboradores</span></div>
-      <div class="stat"><b>52,2%</b><span>da receita vem da avicultura</span></div>
+  <!-- ===================== FICHA 01 ===================== -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01 / PERFIL</span>
+      <h2 class="sec-title">A cooperativa
+        <span class="role">Copacol — Cooperativa Agroindustrial Consolata · Cafelândia (PR)</span>
+      </h2>
     </div>
-  </div>
 
-  <div class="card">
-    <h3>Liderança (diretoria executiva)</h3>
-    <dl>
-      <dt>Diretor-presidente</dt><dd>Valter Pitol</dd>
-      <dt>Vice-presidente</dt><dd>James Fernando de Morais</dd>
-      <dt>Diretor-secretário</dt><dd>Silvério Constantino <em>(ver Ficha 02)</em></dd>
-    </dl>
-  </div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Identificação</h3>
+        <dl>
+          <dt>Razão social</dt><dd>Cooperativa Agroindustrial Consolata (Copacol)</dd>
+          <dt>CNPJ matriz</dt><dd class="mono">76.093.731/0001-90 · <a href="https://cnpj.biz/76093731000190" target="_blank" rel="noopener">consulta</a></dd>
+          <dt>Sede</dt><dd>Cafelândia — PR (cidade de ~20 mil habitantes)</dd>
+          <dt>Fundação</dt><dd><strong>23 out 1963</strong> — 1ª cooperativa do Oeste do PR</dd>
+          <dt>Site</dt><dd><a href="https://www.copacol.com.br" target="_blank" rel="noopener">copacol.com.br</a></dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Posição no mercado</h3>
+        <dl>
+          <dt>No Brasil</dt><dd><strong>128ª</strong> maior empresa do país; entre as 500 maiores</dd>
+          <dt>No Paraná</dt><dd><strong>11ª</strong> maior empresa do estado</dd>
+          <dt>Cooperativismo Sul</dt><dd><strong>6ª</strong> maior cooperativa da região Sul</dd>
+          <dt>Rentabilidade</dt><dd><strong>23,2%</strong> — entre as líderes do agro</dd>
+          <dt>Marca</dt><dd>Em 2026, superou Nestlé e Unilever em ranking de consumo</dd>
+        </dl>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Redes sociais e canais oficiais</h3>
-    <ul class="links">
-      <li><a href="https://www.copacol.com.br" target="_blank" rel="noopener"><span class="net">Site</span> copacol.com.br</a></li>
-      <li><a href="https://www.instagram.com/copacolalimentos/" target="_blank" rel="noopener"><span class="net">Instagram</span> @copacolalimentos</a></li>
-      <li><a href="https://www.instagram.com/copacolcooperativa/" target="_blank" rel="noopener"><span class="net">Instagram</span> @copacolcooperativa</a></li>
-      <li><a href="https://www.youtube.com/c/CopacolOficial" target="_blank" rel="noopener"><span class="net">YouTube</span> Copacol Oficial</a></li>
-      <li><a href="https://www.facebook.com/p/Copacol-Cooperativa-Agroindustrial-Consolata-100068039941459/" target="_blank" rel="noopener"><span class="net">Facebook</span> Copacol</a></li>
-      <li class="busca"><a href="https://www.linkedin.com/search/results/companies/?keywords=Copacol" target="_blank" rel="noopener"><span class="net">LinkedIn</span> buscar “Copacol”</a></li>
-      <li class="busca"><a href="https://www.tiktok.com/search?q=copacol" target="_blank" rel="noopener"><span class="net">TikTok</span> buscar “Copacol”</a></li>
-    </ul>
-    <p style="font-size:12.5px;color:var(--muted);margin:12px 0 0;">Os dois perfis do Instagram são distintos: <strong>@copacolalimentos</strong> (marca de alimentos, ~96&nbsp;mil seguidores) e <strong>@copacolcooperativa</strong> (perfil institucional do agro, ~40&nbsp;mil seguidores). Os itens com borda tracejada são links de busca — a página oficial pode variar, então prefira confirmar pelos links listados no rodapé do site oficial.</p>
-  </div>
+    <div class="panel">
+      <h3>Faturamento — trajetória recente</h3>
+      <div class="chart-wrap">
+        <div class="bars" role="img" aria-label="Faturamento: 2020 meta R$5,2 bi; 2023 R$9,8 bi; 2024 R$10,6 bi; 2025 R$11,1 bi">
+          <div class="bar"><div class="col faded" style="height:47%"></div><div class="val">5,2</div><div class="yr">2020*</div></div>
+          <div class="bar"><div class="col" style="height:88%"></div><div class="val">9,8</div><div class="yr">2023</div></div>
+          <div class="bar"><div class="col" style="height:95%"></div><div class="val">10,6</div><div class="yr">2024</div></div>
+          <div class="bar"><div class="col" style="height:100%"></div><div class="val">11,1</div><div class="yr">2025</div></div>
+        </div>
+        <p class="chart-note">Valores em R$ bilhões. 2020* = meta anunciada aos 57 anos (referência histórica). Alta de 8% em 2024 e de 4,7% em 2025. Sobras distribuídas aos cooperados em 2024: <strong style="color:var(--green)">R$ 270 milhões</strong> — a maior da história (+64%).</p>
+      </div>
+    </div>
 
-  <!-- ====================== FICHA 2 ====================== -->
-  <p class="ficha-label">Ficha 02 · O diretor</p>
-  <h2>Silvério Constantino</h2>
-  <p class="role">Diretor executivo (diretor-secretário) da Copacol · 2º vice-presidente da CrediSIS Copacol Cooperativa de Crédito</p>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Composição da receita</h3>
+        <div class="compose">
+          <div class="row"><span class="name">Avicultura</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="pct">~52%</span></div>
+          <div class="row"><span class="name">Grãos</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="pct">—</span></div>
+          <div class="row"><span class="name">Suínos</span><span class="track"><span class="fill" style="width:24%"></span></span><span class="pct">—</span></div>
+          <div class="row"><span class="name">Peixe / leite</span><span class="track"><span class="fill" style="width:16%"></span></span><span class="pct">—</span></div>
+        </div>
+        <p class="chart-note">A avicultura é o carro-chefe (48,8%–52,2% conforme o ano). Demais atividades sem percentual público exato — barras ilustrativas da ordem de grandeza.</p>
+      </div>
+      <div class="panel">
+        <h3>Escala operacional</h3>
+        <dl>
+          <dt>Aves/dia</dt><dd><strong>+720 mil</strong> abatidas em 2 unidades industriais</dd>
+          <dt>Genética</dt><dd>6 granjas matrizeiras + 2 incubatórios (Nova Aurora, Goioerê)</dd>
+          <dt>Pescado</dt><dd>Frigorífico de tilápia em Toledo (PR)</dd>
+          <dt>Grãos</dt><dd>~40 unidades de grãos, insumos e sementes (PR e RS)</dd>
+          <dt>Exportação</dt><dd>~70 países nos 5 continentes; atende mercados exigentes como o Japão</dd>
+        </dl>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Perfil público e trajetória</h3>
-    <ul class="timeline">
-      <li><strong>Natural de Primeiro de Maio (PR), formado em Administração.</strong> Cooperado da Copacol desde 1986, com participação ativa desde então.</li>
-      <li><strong>Início na base da cooperativa:</strong> coordenador e secretário do Comitê Educativo de Nova Aurora (PR) e do Comitê Central.</li>
-      <li><strong>Conselheiro fiscal</strong> da Copacol em 1990, 1991 e 1996; <strong>conselheiro de administração</strong> nas gestões 1998/2001, 2001/2004 e 2007/2011.</li>
-      <li><strong>Diretor-secretário da diretoria executiva da Copacol</strong> (mandato 2023/2026), ao lado do presidente Valter Pitol e do vice James Fernando de Morais — cargo confirmado em publicações oficiais da cooperativa até 2025.</li>
-      <li><strong>2º vice-presidente da CrediSIS Copacol</strong>, cooperativa de crédito constituída em votação histórica pelos cooperados da Copacol.</li>
-      <li><strong>Representou a Copacol na SIAL Paris</strong>, uma das maiores feiras de alimentos do mundo, destacando a exportação para cerca de 70 países.</li>
-      <li><strong>Participou do Alltech ONE Symposium (EUA)</strong>, evento internacional de inovação no agronegócio com participantes de mais de 70 países.</li>
-      <li><strong>Presente nas celebrações dos 60 anos da Copacol</strong> (2023), recebendo homenagens de parceiros internacionais junto à diretoria.</li>
-      <li><strong>Contou sua história de vida no Podcast Copacol #38</strong> — “história de desafios e superação”, disponível no YouTube (link abaixo).</li>
-    </ul>
-  </div>
+    <div class="panel">
+      <h3>Diretoria executiva (mandato 2023–2026)</h3>
+      <dl>
+        <dt>Presidente</dt><dd><strong>Valter Pitol</strong> — reconduzido em AGO</dd>
+        <dt>Vice-presidente</dt><dd>James Fernando de Morais</dd>
+        <dt>Diretor-secretário</dt><dd><strong>Silvério Constantino</strong> — ver Ficha 02</dd>
+      </dl>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>Onde encontrá-lo online</h3>
-    <ul class="links">
-      <li><a href="https://www.youtube.com/watch?v=fYh0NZyifGk" target="_blank" rel="noopener"><span class="net">YouTube</span> Podcast Copacol #38 (entrevista)</a></li>
-      <li class="busca"><a href="https://www.linkedin.com/search/results/people/?keywords=Silv%C3%A9rio%20Constantino%20Copacol" target="_blank" rel="noopener"><span class="net">LinkedIn</span> buscar “Silvério Constantino”</a></li>
-      <li class="busca"><a href="https://www.instagram.com/explore/search/keyword/?q=silverio%20constantino" target="_blank" rel="noopener"><span class="net">Instagram</span> buscar “Silvério Constantino”</a></li>
-      <li class="busca"><a href="https://www.facebook.com/search/people/?q=Silv%C3%A9rio%20Constantino" target="_blank" rel="noopener"><span class="net">Facebook</span> buscar “Silvério Constantino”</a></li>
-      <li class="busca"><a href="https://www.google.com/search?q=%22Silv%C3%A9rio+Constantino%22+Copacol" target="_blank" rel="noopener"><span class="net">Google</span> notícias e menções</a></li>
-    </ul>
-    <p style="font-size:12.5px;color:var(--muted);margin:12px 0 0;">Não localizei perfis pessoais verificados dele em redes sociais nas fontes públicas consultadas — a presença online dele é sobretudo institucional (podcast, revistas e notícias da Copacol). Os links tracejados são buscas prontas para você mesmo confirmar eventuais perfis pessoais.</p>
-  </div>
+  <!-- ===================== FICHA 02 ===================== -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02 / PESSOA</span>
+      <h2 class="sec-title">Silvério Constantino
+        <span class="role">Diretor-secretário da Copacol · 2º vice-presidente da CrediSIS Copacol</span>
+      </h2>
+    </div>
 
-  <!-- ====================== FICHA 3 ====================== -->
-  <p class="ficha-label">Ficha 03 · A capivara — registros públicos</p>
-  <h2>Antecedentes, processos e pontos de atenção</h2>
-  <p class="role">Levantamento em bases públicas de processos e imprensa · Nenhuma certidão oficial foi emitida</p>
-
-  <div class="card">
-    <h3>Copacol na Justiça</h3>
-    <dl>
-      <dt>Volume de processos</dt>
-      <dd>O Jusbrasil indexa <strong>≈ 11.513 processos</strong> que mencionam a Copacol — maioria na Justiça do Trabalho (TRT-9) e no TJPR, volume esperado para uma empregadora de ~16 mil colaboradores · <a href="https://www.jusbrasil.com.br/processos/nome/29375069/copacol-cooperativa-agroindustrial-consolata" target="_blank" rel="noopener">ver lista no Jusbrasil</a></dd>
-      <dt>Caso mais grave</dt>
-      <dd><strong>Acidente de trabalho fatal (mar/2023)</strong> em elevador de canecas na unidade de Goioerê (PR). Laudo do MPT apontou falhas graves de segurança; ACP ajuizada em ago/2023 na 2ª Vara do Trabalho de Umuarama. Condenação de R$ 100 mil por dano moral coletivo em abr/2024, <strong>elevada a R$ 300 mil pelo TRT-9 em nov/2024</strong> (cabível recurso ao TST). Após o acidente, a Copacol instalou barreiras nos equipamentos · <a href="https://cgn.inf.br/noticia/1714933/acidente-fatal-em-cooperativa-gera-condenacao-por-falha-grave-em-seguranca-de-trabalho" target="_blank" rel="noopener">reportagem CGN</a></dd>
-      <dt>Exemplos trabalhistas</dt>
-      <dd>Ações individuais típicas no TRT-9, como pedido de <a href="https://www.jusbrasil.com.br/processos/920990943/peca-peticao-inicial-trt9-acao-reclamacao-trabalhista-c-c-com-pedido-de-indenizacao-substitutiva-da-estabilidade-gestante-atsum-contra-copacol-cooperativa-agroindustrial-consolata-5644174390" target="_blank" rel="noopener">indenização substitutiva de estabilidade de gestante</a></dd>
-      <dt>Canal de denúncias</dt>
-      <dd>A cooperativa mantém <a href="https://www.copacol.com.br/canal-de-denuncia" target="_blank" rel="noopener">canal de denúncias oficial</a> (compliance)</dd>
-    </dl>
-  </div>
-
-  <div class="card">
-    <h3>Silvério Constantino nos registros públicos</h3>
-    <dl>
-      <dt>Processos em nome próprio</dt>
-      <dd><strong>Nada relevante localizado</strong> nas buscas em Jusbrasil/Escavador e imprensa — as menções públicas a ele são institucionais (cargos, eventos e publicações da Copacol)</dd>
-      <dt>Conferir você mesmo</dt>
-      <dd>
-        <ul class="links" style="margin-top:6px;">
-          <li class="busca"><a href="https://www.jusbrasil.com.br/busca?q=%22Silv%C3%A9rio%20Constantino%22" target="_blank" rel="noopener"><span class="net">Jusbrasil</span> buscar o nome</a></li>
-          <li class="busca"><a href="https://www.escavador.com/busca?q=Silv%C3%A9rio%20Constantino&qo=t" target="_blank" rel="noopener"><span class="net">Escavador</span> buscar o nome</a></li>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Quem é</h3>
+        <dl>
+          <dt>Origem</dt><dd>Natural de <strong>Primeiro de Maio (PR)</strong></dd>
+          <dt>Formação</dt><dd>Graduado em Administração</dd>
+          <dt>Cooperado desde</dt><dd class="mono">1986 — 38+ anos de casa</dd>
+          <dt>Cargo atual</dt><dd><strong>Diretor-secretário</strong> da diretoria executiva</dd>
+          <dt>Também</dt><dd>2º vice-presidente do 1º conselho da CrediSIS Copacol (cooperativa de crédito)</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Da base ao comando</h3>
+        <ul class="tl">
+          <li><span class="yr">1986</span>Ingressa como cooperado; atua no Comitê Educativo de Nova Aurora e no Comitê Central.</li>
+          <li><span class="yr">1990 · 1991 · 1996</span><strong>Conselheiro fiscal</strong> da cooperativa.</li>
+          <li><span class="yr">1998–2011</span><strong>Conselheiro de administração</strong> (gestões 1998/01, 2001/04 e 2007/11).</li>
+          <li><span class="yr">2023–2026</span>Assume e mantém o cargo de <strong>diretor-secretário</strong> executivo.</li>
         </ul>
-      </dd>
-    </dl>
-  </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Puxar a capivara oficial (gratuito)</h3>
-    <ul class="links">
-      <li><a href="https://portal.tjpr.jus.br/e-dj/publico/certidao/gerar.do" target="_blank" rel="noopener"><span class="net">TJPR</span> Consulta / certidões estaduais</a></li>
-      <li><a href="https://www.trt9.jus.br/portal/pagina-inicial.xhtml" target="_blank" rel="noopener"><span class="net">TRT-9</span> Consulta processual trabalhista (PR)</a></li>
-      <li><a href="https://certidoes.trf4.jus.br/" target="_blank" rel="noopener"><span class="net">TRF-4</span> Certidão da Justiça Federal (Sul)</a></li>
-      <li><a href="https://portaldatransparencia.gov.br/sancoes" target="_blank" rel="noopener"><span class="net">CGU</span> Empresas sancionadas (CEIS/CNEP)</a></li>
-      <li><a href="https://cndt-certidao.tst.jus.br/inicio.faces" target="_blank" rel="noopener"><span class="net">TST</span> Certidão Negativa de Débitos Trabalhistas</a></li>
-      <li><a href="https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php" target="_blank" rel="noopener"><span class="net">IBAMA</span> Consulta de autuações e embargos</a></li>
-    </ul>
-    <p style="font-size:12.5px;color:var(--muted);margin:12px 0 0;">Estes são os balcões oficiais e gratuitos para emitir certidões em nome da Copacol (CNPJ 76.093.731/0001-90) ou de pessoa física. Este dossiê não substitui certidão oficial.</p>
-  </div>
+    <div class="panel">
+      <h3>Atuação pública recente</h3>
+      <dl>
+        <dt>Internacional</dt><dd>Representou a Copacol na <strong>SIAL Paris</strong> (uma das maiores feiras de alimentos do mundo) e no <strong>Alltech ONE Symposium</strong> (EUA), evento com participantes de +70 países.</dd>
+        <dt>Institucional</dt><dd>Presente nas celebrações dos <strong>60 anos</strong> da Copacol (2023) e na constituição da CrediSIS Copacol.</dd>
+        <dt>Mídia</dt><dd>Contou sua história de "desafios e superação" no <a href="https://www.youtube.com/watch?v=fYh0NZyifGk" target="_blank" rel="noopener">Podcast Copacol #38</a>.</dd>
+      </dl>
+    </div>
+  </section>
 
-  <!-- ====================== FONTES ====================== -->
-  <p class="ficha-label">Anexo · Fontes consultadas</p>
-  <div class="card fontes">
-    <h3>Todas as fontes (clicáveis)</h3>
-    <ol>
-      <li><a href="https://www.copacol.com.br/nossa-historia" target="_blank" rel="noopener">Copacol — Nossa História (site oficial)</a></li>
-      <li><a href="https://copacol.com.br/noticia/agronegocio/5487/copacol-atinge-r$-106-bilhoes-em-faturamento-e-paga-sobra-historica-de-r$-270-milhoes" target="_blank" rel="noopener">Copacol — Faturamento de R$ 10,6 bi e sobra histórica de R$ 270 mi (site oficial)</a></li>
-      <li><a href="https://timesbrasil.com.br/empresas-e-negocios/copacol-registra-faturamento-de-r-111-bilhoes-em-2025/" target="_blank" rel="noopener">Times Brasil — Copacol registra faturamento de R$ 11,1 bilhões em 2025</a></li>
-      <li><a href="https://www.gazetadopovo.com.br/vozes/parana-sa/copacol-atinge-r-106-bilhoes-de-faturamento-em-2024/" target="_blank" rel="noopener">Gazeta do Povo — Copacol atinge R$ 10,6 bilhões de faturamento em 2024</a></li>
-      <li><a href="https://opresenterural.com.br/copacol-atinge-r-106-bilhoes-em-faturamento-cooperados-recebem-sobra-historica-de-r-270-milhoes/" target="_blank" rel="noopener">O Presente Rural — cooperados recebem sobra histórica</a></li>
-      <li><a href="https://paranacooperativo.coop.br/noticias-cooperativismo/copacol-atinge-r-10-6-bilhoes-em-faturamento-e-cooperados-recebem-sobra-historica" target="_blank" rel="noopener">Sistema Ocepar / Paraná Cooperativo — resultados da Copacol</a></li>
-      <li><a href="https://agrimidia.com.br/negocios/cooperativas/2025/02/04/copacol-cooperados-beneficiados-por-resultados-historicos-de-faturamento-e-sobras/" target="_blank" rel="noopener">Agrimídia — resultados históricos de faturamento e sobras</a></li>
-      <li><a href="https://onovooeste.com.br/noticia/20783/diretor-executivo-da-copacol-silverio-constantino-participa-da-sial-paris" target="_blank" rel="noopener">O Novo Oeste — Diretor executivo Silvério Constantino participa da SIAL Paris</a></li>
-      <li><a href="https://www.jornalavozdoparana.com.br/post/27492/diretor-da-copacol-participa-de-simposio-nos-eua" target="_blank" rel="noopener">A Voz do Paraná — Diretor da Copacol participa de simpósio nos EUA (Alltech ONE)</a></li>
-      <li><a href="https://oparana.com.br/cotidiano/votacao-historica-constitui-a-credisis-copacol-cooperativa-de-credito/" target="_blank" rel="noopener">O Paraná — Votação histórica constitui a CrediSIS Copacol</a></li>
-      <li><a href="https://copacol.com.br/noticia/agronegocio/5279/copacol-celebra-60-anos-com-parceiros-internacionais-e-recebe-votos-de-vida-longa" target="_blank" rel="noopener">Copacol — 60 anos com parceiros internacionais</a></li>
-      <li><a href="https://www.youtube.com/watch?v=fYh0NZyifGk" target="_blank" rel="noopener">YouTube — Podcast Copacol #38: Silvério Constantino</a></li>
-      <li><a href="https://www.copacol.com.br/administrativo/uploads/Revista/cooperado_maio_junho_1751306045476.pdf" target="_blank" rel="noopener">Revista Copacol Cooperado ed. 131 (mai–jun 2025, PDF) — expediente com a diretoria</a></li>
-      <li><a href="https://empresas.serasaexperian.com.br/consulta-gratis/COPACOL-COOPERATIVA-AGROINDUSTRIAL-CONSOLATA-76093731005745" target="_blank" rel="noopener">Serasa Experian — registro empresarial Copacol</a></li>
-      <li><a href="https://cnpj.biz/76093731000190" target="_blank" rel="noopener">CNPJ.biz — Copacol, CNPJ 76.093.731/0001-90</a></li>
-      <li><a href="https://cgn.inf.br/noticia/1714933/acidente-fatal-em-cooperativa-gera-condenacao-por-falha-grave-em-seguranca-de-trabalho" target="_blank" rel="noopener">CGN — Acidente fatal em cooperativa gera condenação por falha grave em segurança do trabalho</a></li>
-      <li><a href="https://www.jusbrasil.com.br/processos/nome/29375069/copacol-cooperativa-agroindustrial-consolata" target="_blank" rel="noopener">Jusbrasil — processos que mencionam a Copacol</a></li>
-      <li><a href="https://opresenterural.com.br/copacol-reforca-transparencia-em-ago-valter-pitol-e-reconduzido-a-presidencia/" target="_blank" rel="noopener">O Presente Rural — AGO recondução de Valter Pitol (diretoria 2023/2026)</a></li>
-      <li><a href="https://copacol.com/copacol" target="_blank" rel="noopener">Copacol — Quem Somos (biografias da diretoria, incl. Silvério Constantino)</a></li>
-    </ol>
-  </div>
+  <!-- ===================== FICHA 03 — CAPIVARA ===================== -->
+  <section class="risk">
+    <div class="sec-head">
+      <span class="sec-num">03 / RISCO</span>
+      <h2 class="sec-title">A capivara — registros públicos
+        <span class="role">Processos, condenações e pontos de atenção em bases abertas</span>
+      </h2>
+    </div>
+
+    <div class="flag">
+      <h3><span class="sev">Atenção · Grave</span></h3>
+      <dl>
+        <dt>O caso</dt>
+        <dd><strong>Acidente de trabalho fatal (mar/2023)</strong> em elevador de canecas na unidade de Goioerê (PR). Laudo do MPT apontou falhas graves de segurança.</dd>
+        <dt>Desfecho</dt>
+        <dd>ACP na 2ª Vara do Trabalho de Umuarama (ago/2023). Condenação de R$ 100 mil por dano moral coletivo (abr/2024), <strong>elevada a R$ 300 mil pelo TRT-9</strong> (nov/2024). Cabe recurso ao TST. A cooperativa instalou barreiras nos equipamentos após o acidente. · <a href="https://cgn.inf.br/noticia/1714933/acidente-fatal-em-cooperativa-gera-condenacao-por-falha-grave-em-seguranca-de-trabalho" target="_blank" rel="noopener">reportagem</a></dd>
+      </dl>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>Copacol na Justiça</h3>
+        <dl>
+          <dt>Volume</dt><dd><strong>≈ 11.513 processos</strong> indexados no Jusbrasil — maioria trabalhista (TRT-9) e no TJPR. Volume dentro do esperado para ~16 mil empregados. · <a href="https://www.jusbrasil.com.br/processos/nome/29375069/copacol-cooperativa-agroindustrial-consolata" target="_blank" rel="noopener">lista</a></dd>
+          <dt>Perfil</dt><dd>Ações individuais típicas (verbas, estabilidade de gestante etc.); nenhum passivo que descaracterize a operação foi localizado em fontes abertas.</dd>
+          <dt>Compliance</dt><dd>Mantém <a href="https://www.copacol.com.br/canal-de-denuncia" target="_blank" rel="noopener">canal de denúncias</a> oficial.</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Silvério Constantino</h3>
+        <dl>
+          <dt>Em nome próprio</dt><dd><strong>Nada relevante localizado</strong> em Jusbrasil/Escavador ou imprensa. As menções públicas a ele são todas institucionais.</dd>
+          <dt>Verifique</dt><dd>
+            <ul class="chips" style="margin-top:8px;">
+              <li class="q"><a href="https://www.jusbrasil.com.br/busca?q=%22Silv%C3%A9rio%20Constantino%22" target="_blank" rel="noopener"><span class="net">Jusbrasil</span> nome</a></li>
+              <li class="q"><a href="https://www.escavador.com/busca?q=Silv%C3%A9rio%20Constantino&qo=t" target="_blank" rel="noopener"><span class="net">Escavador</span> nome</a></li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Puxar a capivara oficial · balcões gratuitos</h3>
+      <ul class="chips">
+        <li><a href="https://portal.tjpr.jus.br/" target="_blank" rel="noopener"><span class="net">TJPR</span> Justiça estadual PR</a></li>
+        <li><a href="https://www.trt9.jus.br/" target="_blank" rel="noopener"><span class="net">TRT-9</span> Trabalhista PR</a></li>
+        <li><a href="https://certidoes.trf4.jus.br/" target="_blank" rel="noopener"><span class="net">TRF-4</span> Justiça Federal Sul</a></li>
+        <li><a href="https://cndt-certidao.tst.jus.br/inicio.faces" target="_blank" rel="noopener"><span class="net">TST</span> CNDT trabalhista</a></li>
+        <li><a href="https://portaldatransparencia.gov.br/sancoes" target="_blank" rel="noopener"><span class="net">CGU</span> CEIS/CNEP sanções</a></li>
+        <li><a href="https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php" target="_blank" rel="noopener"><span class="net">IBAMA</span> Embargos</a></li>
+      </ul>
+      <p class="hint">Balcões oficiais e gratuitos para emitir certidão em nome da Copacol (CNPJ acima) ou de pessoa física. Este dossiê não substitui certidão oficial.</p>
+    </div>
+  </section>
+
+  <!-- ===================== REDES SOCIAIS ===================== -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04 / CANAIS</span>
+      <h2 class="sec-title">Redes sociais &amp; presença digital</h2>
+    </div>
+    <div class="panel">
+      <h3>Copacol — perfis oficiais</h3>
+      <ul class="chips">
+        <li><a href="https://www.copacol.com.br" target="_blank" rel="noopener"><span class="net">Site</span> copacol.com.br</a></li>
+        <li><a href="https://www.instagram.com/copacolalimentos/" target="_blank" rel="noopener"><span class="net">Instagram</span> @copacolalimentos · ~96 mil</a></li>
+        <li><a href="https://www.instagram.com/copacolcooperativa/" target="_blank" rel="noopener"><span class="net">Instagram</span> @copacolcooperativa · ~40 mil</a></li>
+        <li><a href="https://www.youtube.com/c/CopacolOficial" target="_blank" rel="noopener"><span class="net">YouTube</span> Copacol Oficial</a></li>
+        <li><a href="https://www.facebook.com/p/Copacol-Cooperativa-Agroindustrial-Consolata-100068039941459/" target="_blank" rel="noopener"><span class="net">Facebook</span> Copacol</a></li>
+        <li class="q"><a href="https://www.linkedin.com/search/results/companies/?keywords=Copacol" target="_blank" rel="noopener"><span class="net">LinkedIn</span> buscar</a></li>
+        <li class="q"><a href="https://www.tiktok.com/search?q=copacol" target="_blank" rel="noopener"><span class="net">TikTok</span> buscar</a></li>
+      </ul>
+      <p class="hint">Dois perfis distintos no Instagram: <strong>@copacolalimentos</strong> (marca de alimentos) e <strong>@copacolcooperativa</strong> (institucional do agro). Itens tracejados são buscas — confirme o canal oficial pelos links do próprio site.</p>
+    </div>
+    <div class="panel">
+      <h3>Silvério Constantino — onde encontrá-lo</h3>
+      <ul class="chips">
+        <li><a href="https://www.youtube.com/watch?v=fYh0NZyifGk" target="_blank" rel="noopener"><span class="net">YouTube</span> Podcast Copacol #38</a></li>
+        <li class="q"><a href="https://www.linkedin.com/search/results/people/?keywords=Silv%C3%A9rio%20Constantino%20Copacol" target="_blank" rel="noopener"><span class="net">LinkedIn</span> buscar pessoa</a></li>
+        <li class="q"><a href="https://www.facebook.com/search/people/?q=Silv%C3%A9rio%20Constantino" target="_blank" rel="noopener"><span class="net">Facebook</span> buscar</a></li>
+        <li class="q"><a href="https://www.google.com/search?q=%22Silv%C3%A9rio+Constantino%22+Copacol" target="_blank" rel="noopener"><span class="net">Google</span> menções</a></li>
+      </ul>
+      <p class="hint">Sem perfil pessoal verificado nas fontes públicas consultadas — presença sobretudo institucional.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FONTES ===================== -->
+  <section class="sources">
+    <div class="sec-head">
+      <span class="sec-num">05 / FONTES</span>
+      <h2 class="sec-title">Referências consultadas</h2>
+    </div>
+    <div class="panel">
+      <ol>
+        <li><a href="https://www.copacol.com.br/nossa-historia" target="_blank" rel="noopener">Copacol — Nossa História (site oficial)</a></li>
+        <li><a href="https://copacol.com/copacol" target="_blank" rel="noopener">Copacol — Quem Somos / biografias da diretoria</a></li>
+        <li><a href="https://copacol.com.br/noticia/agronegocio/5487/copacol-atinge-r$-106-bilhoes-em-faturamento-e-paga-sobra-historica-de-r$-270-milhoes" target="_blank" rel="noopener">Copacol — R$ 10,6 bi e sobra histórica de R$ 270 mi</a></li>
+        <li><a href="https://timesbrasil.com.br/empresas-e-negocios/copacol-registra-faturamento-de-r-111-bilhoes-em-2025/" target="_blank" rel="noopener">Times Brasil — Faturamento de R$ 11,1 bi em 2025</a></li>
+        <li><a href="https://ndmais.com.br/economia/negocios/gigante-das-cooperativas-bate-rivais-nestle-e-unilever-em-ranking/" target="_blank" rel="noopener">ND Mais — Copacol supera Nestlé e Unilever em ranking</a></li>
+        <li><a href="https://www.onovooeste.com.br/noticia/20816/com-r$-10-bilhoes-de-faturamento-copacol-esta-entre-as-500-maiores-do-brasil-no-parana-a-posicao-e-128-no-ranking" target="_blank" rel="noopener">O Novo Oeste — 128ª maior do Brasil, 500 maiores</a></li>
+        <li><a href="https://mundocoop.com.br/agronegocio/cooperativa-copacol-lidera-ranking-do-agro-com-rentabilidade-de-232-e-novos-investimentos/" target="_blank" rel="noopener">MundoCoop — rentabilidade de 23,2%</a></li>
+        <li><a href="https://www.copacol.com.br/avicultura" target="_blank" rel="noopener">Copacol — Avicultura (escala operacional)</a></li>
+        <li><a href="https://tribunadaregiao.com.br/noticias/artigo/copacol-chega-aos-57-anos-com-meta-de-atingir-r-52-bilhoes-em-faturamento" target="_blank" rel="noopener">Tribuna da Região — meta de R$ 5,2 bi aos 57 anos</a></li>
+        <li><a href="https://onovooeste.com.br/noticia/20783/diretor-executivo-da-copacol-silverio-constantino-participa-da-sial-paris" target="_blank" rel="noopener">O Novo Oeste — Silvério Constantino na SIAL Paris</a></li>
+        <li><a href="https://www.jornalavozdoparana.com.br/post/27492/diretor-da-copacol-participa-de-simposio-nos-eua" target="_blank" rel="noopener">A Voz do Paraná — diretor no Alltech ONE (EUA)</a></li>
+        <li><a href="https://oparana.com.br/cotidiano/votacao-historica-constitui-a-credisis-copacol-cooperativa-de-credito/" target="_blank" rel="noopener">O Paraná — constituição da CrediSIS Copacol</a></li>
+        <li><a href="https://opresenterural.com.br/copacol-reforca-transparencia-em-ago-valter-pitol-e-reconduzido-a-presidencia/" target="_blank" rel="noopener">O Presente Rural — AGO e recondução de Valter Pitol</a></li>
+        <li><a href="https://www.youtube.com/watch?v=fYh0NZyifGk" target="_blank" rel="noopener">YouTube — Podcast Copacol #38: Silvério Constantino</a></li>
+        <li><a href="https://cgn.inf.br/noticia/1714933/acidente-fatal-em-cooperativa-gera-condenacao-por-falha-grave-em-seguranca-de-trabalho" target="_blank" rel="noopener">CGN — condenação por acidente fatal em Goioerê</a></li>
+        <li><a href="https://www.jusbrasil.com.br/processos/nome/29375069/copacol-cooperativa-agroindustrial-consolata" target="_blank" rel="noopener">Jusbrasil — processos que mencionam a Copacol</a></li>
+        <li><a href="https://cnpj.biz/76093731000190" target="_blank" rel="noopener">CNPJ.biz — Copacol, CNPJ 76.093.731/0001-90</a></li>
+      </ol>
+    </div>
+  </section>
 
   <footer>
-    Dossiê compilado em 10 de setembro de 2026 a partir exclusivamente de fontes públicas listadas acima. Cargos, seguidores e valores financeiros podem ter mudado desde a publicação das fontes — os links permitem verificar a versão mais atual de cada informação.
+    DOSSIÊ CPC-2026-09 · Compilado em 10 set 2026 a partir exclusivamente das fontes públicas acima.<br>
+    Cargos, seguidores e valores financeiros mudam — use os links para verificar a versão mais atual. Não substitui certidão oficial nem due diligence formal.
   </footer>
 </div>
